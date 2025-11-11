@@ -10,6 +10,15 @@ const getGameIdFromHash = () => {
 const GameDetail = () => {
   const gameId = getGameIdFromHash()
   const game = games.find(g => g.id === gameId)
+  const [lightboxSrc, setLightboxSrc] = React.useState(null)
+
+  React.useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setLightboxSrc(null)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   if (!game) {
     return (
@@ -43,7 +52,7 @@ const GameDetail = () => {
                 <img
                   src={game.mainImage}
                   alt={game.title}
-                  style={{ width: '100%', borderRadius: '16px', objectFit: 'cover', maxHeight: '480px' }}
+                  style={{ width: '100%', borderRadius: '16px', objectFit: 'cover' }}
                 />
               ) : (
                 <div className="game-image placeholder-image" style={{ height: '320px' }}>
@@ -59,6 +68,20 @@ const GameDetail = () => {
               <p><strong>When:</strong> {game.when || 'Đang cập nhật'}</p>
               <p><strong>Who:</strong> {game.who || 'Đang cập nhật'}</p>
             </div>
+
+            {game.downloadLink && (
+              <div>
+                <h3>Download or watching video</h3>
+                <a
+                  href={game.downloadLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#667eea', textDecoration: 'underline', fontWeight: 600 }}
+                >
+                  Click here to open link driver.
+                </a>
+              </div>
+            )}
 
             <div>
               <h3>Mô tả</h3>
@@ -85,7 +108,13 @@ const GameDetail = () => {
                         />
                       </div>
                     ) : (
-                      <img key={`media-${idx}`} src={m.src} alt={`media-${idx}`} style={{ width: '100%', borderRadius: '12px', objectFit: 'cover', height: '180px' }} />
+                      <img
+                        key={`media-${idx}`}
+                        src={m.src}
+                        alt={`media-${idx}`}
+                        style={{ width: '100%', borderRadius: '12px', objectFit: 'cover', height: '180px', cursor: 'zoom-in' }}
+                        onClick={() => setLightboxSrc(m.src)}
+                      />
                     )
                   ))
                 ) : (
@@ -100,6 +129,51 @@ const GameDetail = () => {
           </div>
         </div>
       </section>
+
+      {lightboxSrc && (
+        <div
+          onClick={() => setLightboxSrc(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 2000,
+            padding: '24px'
+          }}
+        >
+          <img
+            src={lightboxSrc}
+            alt="preview"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: '95%',
+              maxHeight: '90%',
+              borderRadius: '12px',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.6)',
+              objectFit: 'contain'
+            }}
+          />
+          <button
+            onClick={() => setLightboxSrc(null)}
+            style={{
+              position: 'fixed',
+              top: '20px',
+              right: '20px',
+              background: 'rgba(255,255,255,0.15)',
+              color: '#fff',
+              border: '1px solid rgba(255,255,255,0.25)',
+              borderRadius: '8px',
+              padding: '8px 12px',
+              cursor: 'pointer'
+            }}
+          >
+            Close
+          </button>
+        </div>
+      )}
 
       <footer className="footer">
         <div className="container">

@@ -3,12 +3,15 @@
     "id": 1,
     "title": "Hungry In Dungeon 2D",
     "mainImage": "/images/hungry-in-dungeon/main.jpg",
+    "downloadLink": "https://github.com/khangng2001/H-inDungeon?tab=readme-ov-file",
     "when": "2023",
     "who": "Team Alice",
     "media": [
+      { "type": "video", "src": "https://www.youtube.com/embed/xOzkLuTj0VM?si=ndkq0U_MGHK_EVC-" },
       { "type": "image", "src": "/images/hungry-in-dungeon/1.jpg" },
       { "type": "image", "src": "/images/hungry-in-dungeon/2.jpg" },
-      { "type": "video", "src": "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+      { "type": "image", "src": "/images/hungry-in-dungeon/3.jpg" },
+      { "type": "image", "src": "/images/hungry-in-dungeon/4.jpg" }
     ],
     "descriptions": [
       "• This project 2D RPG that was created by our group for FPT Aptech.",
@@ -19,11 +22,18 @@
     "id": 2,
     "title": "Meow Battle 3D",
     "mainImage": "/images/meow-battle/main.jpg",
+    "downloadLink": "https://drive.google.com/drive/u/0/folders/1-mrOrDsrpnhiLiN1Ak3Elp9SRlfOsyJg",
     "when": "2024",
     "who": "Team Alice",
     "media": [
-      { "type": "image", "src": "/images/meow-battle/1.jpg" },
-      { "type": "image", "src": "/images/meow-battle/2.jpg" }
+      { "type": "video", "src": "https://www.youtube.com/embed/XFAz3Omtc5k?si=6yEXru3iGzzsPwyr" },
+      { "type": "image", "src": "/images/meow-battle/1.png" },
+      { "type": "image", "src": "/images/meow-battle/2.jpg" },
+      { "type": "image", "src": "/images/meow-battle/3.jpg" },
+      { "type": "image", "src": "/images/meow-battle/4.jpg" },
+      { "type": "image", "src": "/images/meow-battle/5.jpg" },
+      { "type": "image", "src": "/images/meow-battle/6.jpg" },
+      { "type": "image", "src": "/images/meow-battle/7.jpg" }
     ],
     "descriptions": [
       "• This project 3D Esport that was created by our group for FPT Aptech.",
@@ -34,6 +44,7 @@
     "id": 3,
     "title": "Kingdom Troop 3D RPG",
     "mainImage": "/images/kingdom-troop/main.jpg",
+    "downloadLink": "https://drive.google.com/",
     "when": "2022",
     "who": "Team Alice",
     "media": [

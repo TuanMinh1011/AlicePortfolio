@@ -39,9 +39,19 @@ const HomePage = () => {
           <div className="games-grid">
             {games.map(game => (
               <div className="game-card" key={game.id}>
-                <div className="game-image placeholder-image">
-                  <span>{game.title}</span>
-                </div>
+                {game.mainImage ? (
+                  <div className="game-image" style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
+                    <img
+                      src={game.mainImage}
+                      alt={game.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
+                ) : (
+                  <div className="game-image placeholder-image">
+                    <span>{game.title}</span>
+                  </div>
+                )}
                 <div className="game-info">
                   <h3>{game.title}</h3>
                   {Array.isArray(game.descriptions) && game.descriptions.map((line, idx) => (
