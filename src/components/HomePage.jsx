@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/HomePage.css'
+import games from '../data/games.json'
 
 const HomePage = () => {
   return (
@@ -36,36 +37,27 @@ const HomePage = () => {
         <div className="container">
           <h2 className="section-title">Games Nổi Bật</h2>
           <div className="games-grid">
-            <div className="game-card">
-              <div className="game-image placeholder-image">
-                <span>Game 1</span>
+            {games.map(game => (
+              <div className="game-card" key={game.id}>
+                <div className="game-image placeholder-image">
+                  <span>{game.title}</span>
+                </div>
+                <div className="game-info">
+                  <h3>{game.title}</h3>
+                  {Array.isArray(game.descriptions) && game.descriptions.map((line, idx) => (
+                    <p key={`${game.id}-desc-${idx}`}>{line}</p>
+                  ))}
+                  <button
+                    className="game-button"
+                    onClick={() => {
+                      window.location.hash = `#/games/${game.id}`
+                    }}
+                  >
+                    Xem chi tiết
+                  </button>
+                </div>
               </div>
-              <div className="game-info">
-                <h3>Tựa Game 1</h3>
-                <p>Mô tả ngắn về game đầu tiên của chúng tôi</p>
-                <button className="game-button">Xem chi tiết</button>
-              </div>
-            </div>
-            <div className="game-card">
-              <div className="game-image placeholder-image">
-                <span>Game 2</span>
-              </div>
-              <div className="game-info">
-                <h3>Tựa Game 2</h3>
-                <p>Mô tả ngắn về game thứ hai của chúng tôi</p>
-                <button className="game-button">Xem chi tiết</button>
-              </div>
-            </div>
-            <div className="game-card">
-              <div className="game-image placeholder-image">
-                <span>Game 3</span>
-              </div>
-              <div className="game-info">
-                <h3>Tựa Game 3</h3>
-                <p>Mô tả ngắn về game thứ ba của chúng tôi</p>
-                <button className="game-button">Xem chi tiết</button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
