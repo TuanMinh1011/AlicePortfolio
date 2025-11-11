@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/HomePage.css'
 import games from '../data/games.json'
+import team from '../data/team.json'
 import { getAssetUrl } from '../utils/assets'
 
 const HomePage = () => {
@@ -81,6 +82,24 @@ const HomePage = () => {
             Chúng tôi là một nhóm đam mê phát triển game, tạo ra những trải nghiệm 
             thú vị và độc đáo cho người chơi.
           </p>
+
+          <div className="team-grid">
+            {team.slice(0, 4).map(member => (
+              <div key={member.id} className="game-card" style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => (window.location.hash = `#/team/${member.id}`)}>
+                <div style={{ width: '100%', height: '400px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6' }}>
+                  <img
+                    src={getAssetUrl(member.avatar)}
+                    alt={member.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="game-info">
+                  <h3>{member.name}</h3>
+                  <p style={{ margin: 0, color: '#666' }}>{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

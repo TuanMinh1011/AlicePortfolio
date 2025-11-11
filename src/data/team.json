@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Rick",
+    "avatar": "/images/team/khang.jpg",
+    "role": "Leader / Developer",
+    "about": "Đam mê design gameplay và trải nghiệm người chơi.",
+    "portfolioLink": "https://example.com/alice"
+  },
+  {
+    "id": 2,
+    "name": "DevVipPro123",
+    "avatar": "/images/team/thinh.jpg",
+    "role": "Developer",
+    "about": "Chuyên Unity và tối ưu hiệu năng.",
+    "portfolioLink": "https://example.com/bob"
+  },
+  {
+    "id": 3,
+    "name": "MinhXavia",
+    "avatar": "/images/team/thu.jpg",
+    "role": "Developer",
+    "about": "Thích tạo asset 3D và lighting.",
+    "portfolioLink": "https://example.com/carol"
+  },
+  {
+    "id": 4,
+    "name": "Mark",
+    "avatar": "/images/team/tuan.jpg",
+    "role": "Developer",
+    "about": "Đảm bảo chất lượng và trải nghiệm mượt mà.",
+    "portfolioLink": "https://example.com/dave"
+  }
+]
+
