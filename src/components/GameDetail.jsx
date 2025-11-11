@@ -7,6 +7,15 @@ const getGameIdFromHash = () => {
   return match ? parseInt(match[1], 10) : null
 }
 
+const getAssetUrl = (src) => {
+  if (!src) return src
+  if (/^https?:\/\//i.test(src)) return src
+  if (src.startsWith('/')) {
+    return `${import.meta.env.BASE_URL}${src.slice(1)}`
+  }
+  return `${import.meta.env.BASE_URL}${src}`
+}
+
 const GameDetail = () => {
   const gameId = getGameIdFromHash()
   const game = games.find(g => g.id === gameId)
@@ -50,7 +59,7 @@ const GameDetail = () => {
             <div className="game-detail-hero">
               {game.mainImage ? (
                 <img
-                  src={game.mainImage}
+                  src={getAssetUrl(game.mainImage)}
                   alt={game.title}
                   style={{ width: '100%', borderRadius: '16px', objectFit: 'cover' }}
                 />
@@ -110,10 +119,10 @@ const GameDetail = () => {
                     ) : (
                       <img
                         key={`media-${idx}`}
-                        src={m.src}
+                        src={getAssetUrl(m.src)}
                         alt={`media-${idx}`}
                         style={{ width: '100%', borderRadius: '12px', objectFit: 'cover', height: '180px', cursor: 'zoom-in' }}
-                        onClick={() => setLightboxSrc(m.src)}
+                        onClick={() => setLightboxSrc(getAssetUrl(m.src))}
                       />
                     )
                   ))

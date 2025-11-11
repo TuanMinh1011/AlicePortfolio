@@ -2,6 +2,18 @@ import React from 'react'
 import '../styles/HomePage.css'
 import games from '../data/games.json'
 
+const getAssetUrl = (src) => {
+  if (!src) return src
+  // If it's an absolute http(s) URL, keep as is
+  if (/^https?:\/\//i.test(src)) return src
+  // If it starts with a slash, prefix with base URL for GitHub Pages
+  if (src.startsWith('/')) {
+    return `${import.meta.env.BASE_URL}${src.slice(1)}`
+  }
+  // Otherwise treat as relative under base
+  return `${import.meta.env.BASE_URL}${src}`
+}
+
 const HomePage = () => {
   return (
     <div className="homepage">
@@ -42,7 +54,7 @@ const HomePage = () => {
                 {game.mainImage ? (
                   <div className="game-image" style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
                     <img
-                      src={game.mainImage}
+                      src={getAssetUrl(game.mainImage)}
                       alt={game.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
