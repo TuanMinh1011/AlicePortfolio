@@ -1,6 +1,7 @@
 import React from 'react'
 import games from '../data/games.json'
 import '../styles/HomePage.css'
+import { getAssetUrl } from '../utils/assets'
 
 const getGameIdFromHash = () => {
   const match = window.location.hash.match(/^#\/games\/(\d+)/)
@@ -50,7 +51,7 @@ const GameDetail = () => {
             <div className="game-detail-hero">
               {game.mainImage ? (
                 <img
-                  src={game.mainImage}
+                  src={getAssetUrl(game.mainImage)}
                   alt={game.title}
                   style={{ width: '100%', borderRadius: '16px', objectFit: 'cover' }}
                 />
@@ -110,10 +111,10 @@ const GameDetail = () => {
                     ) : (
                       <img
                         key={`media-${idx}`}
-                        src={m.src}
+                        src={getAssetUrl(m.src)}
                         alt={`media-${idx}`}
                         style={{ width: '100%', borderRadius: '12px', objectFit: 'cover', height: '180px', cursor: 'zoom-in' }}
-                        onClick={() => setLightboxSrc(m.src)}
+                        onClick={() => setLightboxSrc(getAssetUrl(m.src))}
                       />
                     )
                   ))

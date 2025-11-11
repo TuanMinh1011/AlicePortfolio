@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/HomePage.css'
 import games from '../data/games.json'
+import { getAssetUrl } from '../utils/assets'
 
 const HomePage = () => {
   return (
@@ -42,7 +43,7 @@ const HomePage = () => {
                 {game.mainImage ? (
                   <div className="game-image" style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
                     <img
-                      src={game.mainImage}
+                      src={getAssetUrl(game.mainImage)}
                       alt={game.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
