@@ -1,4 +1,2 @@
-.github/workflows/static.yml merge=ours
-
 # Auto detect text files and perform LF normalization
 * text=auto

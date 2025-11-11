@@ -23,5 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 
-.github/workflows/static.yml merge=ours
-

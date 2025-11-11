@@ -1,19 +1,11 @@
 import React from 'react'
 import games from '../data/games.json'
 import '../styles/HomePage.css'
+import { getAssetUrl } from '../utils/assets'
 
 const getGameIdFromHash = () => {
   const match = window.location.hash.match(/^#\/games\/(\d+)/)
   return match ? parseInt(match[1], 10) : null
-}
-
-const getAssetUrl = (src) => {
-  if (!src) return src
-  if (/^https?:\/\//i.test(src)) return src
-  if (src.startsWith('/')) {
-    return `${import.meta.env.BASE_URL}${src.slice(1)}`
-  }
-  return `${import.meta.env.BASE_URL}${src}`
 }
 
 const GameDetail = () => {
