@@ -13,23 +13,23 @@
     "avatar": "/images/team/thinh.jpg",
     "role": "Developer",
     "about": "Chuyên Unity và tối ưu hiệu năng.",
-    "portfolioLink": "https://example.com/bob"
+    "portfolioLink": "https://ngoc-thinhs-portfolio.webflow.io/"
   },
   {
     "id": 3,
-    "name": "MinhXavia",
+    "name": "MinhThu",
     "avatar": "/images/team/thu.jpg",
     "role": "Developer",
     "about": "Thích tạo asset 3D và lighting.",
-    "portfolioLink": "https://example.com/carol"
-  },
+    "portfolioLink": "https://sysoutthu-porfolio.webflow.io"
+  },  
   {
     "id": 4,
     "name": "Mark",
     "avatar": "/images/team/tuan.jpg",
     "role": "Developer",
     "about": "Đảm bảo chất lượng và trải nghiệm mượt mà.",
-    "portfolioLink": "https://example.com/dave"
+    "portfolioLink": "https://minh-tuans-portfolio-fc8b18.webflow.io/"
   }
 ]
 
